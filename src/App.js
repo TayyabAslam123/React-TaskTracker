@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <h1>React Todo Tracker !</h1>
-      <Header myCity = "Lahore" />
+      <Header myCity = "Lahore , Punjab , Pakistan " />
       <h3>Welcome {name}</h3>  
     </div>
   );
