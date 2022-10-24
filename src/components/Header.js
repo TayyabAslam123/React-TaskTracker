@@ -1,10 +1,20 @@
 import PropTypes from 'prop-types'
+import Button from './Button';
 
 function Header({myCity}) {
+    // Event
+    const myEvent = () => {
+      alert('Today is '+ new Date().toLocaleString("en-US", { day : '2-digit' ,month: "long" }));
+    }
+    // End Event
+
     return (
-      <header>
+      <header className='header'>
         <h1 style={{color : 'red', backgroundColor: 'black' }}>___ TASK TRACKER ___</h1>
         <p style={cityStyle}>I am living in  <b>{myCity}</b></p>
+        <Button text = "Add Task" color = "green"/>
+        <button onClick={myEvent}  className='btn' style={{color : 'white', backgroundColor: 'blue'}}>Show Date</button>
+
       </header>
     );
 }

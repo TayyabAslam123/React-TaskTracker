@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
+import Task from './components/Task';
 
 function App() {
   
@@ -9,8 +10,9 @@ function App() {
   return (
     <div className="App">
       <h1>React Todo Tracker !</h1>
-      <Header myCity = "Lahore , Punjab , Pakistan " />
+      <Header myCity = "Lahore" />
       <h3>Welcome {name}</h3>  
+      <Task />
     </div>
   );
 
