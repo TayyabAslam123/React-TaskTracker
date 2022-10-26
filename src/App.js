@@ -2,8 +2,49 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
 import Task from './components/Task';
+import { useState } from "react"
+
 
 function App() {
+
+  // State
+  const [tasks, setTasks] = useState([
+    {
+        id:1,
+        text: 'wake up'
+    },
+    {
+        id:2,
+        text: 'Brush Teeth'
+    },
+    {
+        id:3,
+        text: 'Do breakfast'
+    },
+    {
+        id:4,
+        text: 'Go To Office'
+    },
+    {
+      id:5,
+      text: 'Work Hard'
+  }
+
+    ]);
+
+  
+  const deleteTask = (id) =>{
+    console.log('delete : ' + id);
+    setTasks(tasks.filter((task) => task.id !== id))
+  }  
+
+  ////////
+  // OR //
+ //////////
+
+  // function deleteTask(id){
+  //   console.log('delete this Id : ' + id);
+  // }
   
   const name = 'user :)';
 
@@ -12,7 +53,8 @@ function App() {
       <h1>React Todo Tracker !</h1>
       <Header myCity = "Lahore" />
       <h3>Welcome {name}</h3>  
-      <Task />
+      {tasks.length > 0 ?  <Task tasks={tasks} onDelete={deleteTask} /> : 'No Task Found !'}
+     
     </div>
   );
 
