@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
 import Task from './components/Task';
+import AddTask from './components/AddTask';
+// state
 import { useState } from "react"
 
 
@@ -9,29 +11,40 @@ function App() {
 
   // State
   const [tasks, setTasks] = useState([
-    {
-        id:1,
-        text: 'wake up'
-    },
-    {
-        id:2,
-        text: 'Brush Teeth'
-    },
-    {
-        id:3,
-        text: 'Do breakfast'
-    },
-    {
-        id:4,
-        text: 'Go To Office'
-    },
-    {
-      id:5,
-      text: 'Work Hard'
-  }
+      {
+          id:1,
+          text: 'wake up',
+          date : '27 Oct 2022'
+      },
+      {
+          id:2,
+          text: 'Brush Teeth',
+          date : '27 Oct 2022'
+
+      },
+      {
+          id:3,
+          text: 'Do breakfast',
+          date : '27 Oct 2022'
+      }
 
     ]);
 
+
+  const addTask =(latestTask)=>{
+    console.log(latestTask)
+    const id = Math.floor(Math.random() * 1000) + 1; // random id
+
+    const newTask = {  
+      id: id,
+      text: latestTask.task,
+      date : latestTask.day
+    }
+
+    console.log(newTask);
+    
+    setTasks([...tasks, newTask]);
+  }  
   
   const deleteTask = (id) =>{
     console.log('delete : ' + id);
@@ -53,7 +66,8 @@ function App() {
       <h1>React Todo Tracker !</h1>
       <Header myCity = "Lahore" />
       <h3>Welcome {name}</h3>  
-      {tasks.length > 0 ?  <Task tasks={tasks} onDelete={deleteTask} /> : 'No Task Found !'}
+      <AddTask  onAdd={addTask}  />
+      {tasks.length > 0 ?  <Task tasks={tasks} onDelete={deleteTask}/> : 'No Task Found !'}
      
     </div>
   );

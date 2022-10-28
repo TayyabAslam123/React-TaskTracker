@@ -7,7 +7,7 @@ const SingleTask = (props) => {
         <div className="task">
             <h3>{props.task}</h3>
             <FaTimes style={{ color: 'red', cursor: 'pointer', margin:0 }} onClick={ () => props.onDelete(props.data.id)} />
-            <h3>Date : </h3>
+            <h3>Date : {props.data.date}</h3>
         </div>
     )
 
